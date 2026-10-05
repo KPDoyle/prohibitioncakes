@@ -13,7 +13,7 @@ No WordPress server, local Pi address, database, or third-party image host is ne
 
 ## Source and editing
 
-The original public frontend is losslessly packaged in `site/source-*.part`. `site/manifest.json` contains its SHA-256 digest; the build verifies and extracts it to `public/`, then creates `dist/`. Splitting the archive preserves every original asset path while allowing reliable upload through GitHub's API.
+The original public frontend is losslessly packaged in `site/source-*.part`. `site/manifest.json` contains its SHA-256 digest; the build verifies and extracts it to `public/`, applies `site/page-overrides.tar.gz` with corrected legacy product markup, removes old local URLs, then creates `dist/`. Splitting the archive preserves every original asset path while allowing reliable upload through GitHub's API.
 
 After running the build, edit `public/` and run `node scripts/pack.mjs` to persist your edits to the tracked source parts. Commit the updated `site/` files. The repository is linked to Vercel, so pushes to the production branch redeploy the website.
 

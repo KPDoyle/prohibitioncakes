@@ -3,4 +3,4 @@ dist/
 .vercel/
 .env*
 public/
-site/*.tar.gz
+site/source.tar.gz
